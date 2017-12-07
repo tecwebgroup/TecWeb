@@ -1,0 +1,59 @@
+<%@ taglib prefix="s" uri="/struts-tags" %>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta charset="utf-8">
+		
+		<title>Login</title>
+		
+		<!-- Importo JQuery -->
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+		<script src='js/login_js.js'></script>
+	</head>
+	
+	<link rel="stylesheet" href="css/login_css.css">
+	
+	<body>
+
+		<div class="tg-wrap" id="div_form">
+			<p>Registrati</p>
+			<s:form action="login" method="post" id="login_form">
+				<table>
+					<tr>
+						<td>
+							<img src="icons/user.png" height="35">  
+						</td>
+						<td>
+							<s:textfield name="username" type="text" id="user" maxlength="20" size="27"/>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<img src="icons/pass.png" height="35">  
+						</td>
+						<td>
+							<s:password name="password" id="pass" type="password" maxlength="20" size="27"/>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<img src="icons/place.png" height="35">
+						</td>
+						<td>
+							<s:textfield name="place" id="user" type="text" maxlength="20" size="27"/>
+						</td>
+					</tr>
+					<tr>
+						<td colspan="2">
+							<s:submit type="submit" name="login" value="Sing In"/>
+						</td>
+					</tr>
+				</table>
+			</s:form>
+		</div>
+	</body>
+</html>

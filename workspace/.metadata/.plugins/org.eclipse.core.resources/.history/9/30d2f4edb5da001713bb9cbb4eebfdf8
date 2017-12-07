@@ -1,0 +1,119 @@
+<%@ taglib prefix="s" uri="/struts-tags" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta charset="UTF-8">
+		<meta http-equiv="Content-type" content="text/html; charset=UTF-8">
+		
+		<title>Controllo inquinanti</title>
+		
+		<!-- Importo script -->
+		<script src="js/jquery.min.js"></script>
+		<script src="js/homepage_js.js"></script>
+		<script src="js/bootstrap.min.js"></script>
+
+		<!-- Importo CSS -->
+		<link href="css/bootstrap.min.css" rel="stylesheet">
+		<link href="css/homepage_css.css" rel="stylesheet">
+		<link href="css/map_css.css" rel="stylesheet">
+	</head>
+	
+	<!-- Si fa uso di classi CSS di Bootstrap per rendere la pagina responsive -->
+	<body>
+		<!-- Navbar -->
+		<nav class="navbar navbar-default" id="nav">
+		  <div class="container-fluid">
+			<div class="navbar-header">
+			  	<a class="navbar-brand" href="#">
+					<span><img src="icons/pollution.png" width="32" height="32"/></span>
+					Controllo inquinanti
+			    </a>
+			</div>		  
+			<script type="text/javascript">menu('<%= session.getAttribute("username") %>');</script>
+		  </div>
+		</nav>
+		
+		<!-- Corpo  -->
+		<div class="container">
+			<script>select_bar('<%= session.getAttribute("username") %>');</script>
+			<div class="row">	
+				<div class="col-md-6">
+					<!-- Barra di ricerca -->
+					<div class="input-group">
+						  <input type="text" class="form-control" placeholder="Cerca località ...">
+						  <span class="input-group-btn">
+							<button class="btn btn-default" type="button"><span class="glyphicon glyphicon-search"></span></button>
+						  </span>
+					</div>
+				</div>
+			</div>
+			
+			<div class="row">
+				<div class="col-md-6">
+					<!-- Mappa -->
+					<div id="map_container">
+						<div id="map"></div>
+					</div>
+					<div id="legend"><h3>Leggenda</h3></div>
+					<script src="js/map.js"></script>	
+					<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC_7rvzXKqDX2Xqu3BcElTfD6wCYH1lwaI&callback=initMap"></script>
+				</div>
+				
+				<div class="col-md-6">
+					<div class="panel panel-default" id="pollutants_table">
+					  <!-- Default panel contents -->
+					  <div class="panel-heading">Tabella valori inquinanti</div>
+					  <div class="panel-body" id="table_desc">
+						<p>Di seguito sono riportati i valori di 10 inquinanti presi in esame per la località  selezionata, aggiornati ad intervalli di 6 ore.</p>
+					  </div>
+					  <!-- Table -->
+					  <table class="table">
+							<thead>
+								<tr>
+									<th>#</th><th>NOME INQUINANTE</th> <th>VALORE</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<th>1</th><td>Anidride arseniosa</td> <td>125.45</td>
+								</tr>
+								<tr>
+									<th>2</th><td>Anidride solforosa</td> <td>30.29</td>
+								</tr>
+								<tr>
+									<th>3</th><td>Benzene</td> <td>15.1</td>
+								</tr>
+								<tr>
+									<th>4</th><td>Cloruro di vinile</td> <td>98.41</td>
+								</tr>		
+								<tr>
+									<th>5</th><td>Diossido di zolfo</td> <td>50.26</td>
+								</tr>
+								<tr>
+									<th>6</th><td>Monossido di carbonio</td> <td>120.52</td>
+								</tr>
+								<tr>
+									<th>7</th><td>Ozono</td> <td>9.2</td>
+								</tr>
+								<tr>
+									<th>8</th><td>Radon</td> <td>2.17</td>
+								</tr>
+								<tr>
+									<th>9</th><td>Solfuro di carbonio</td> <td>74.12</td>
+								</tr>
+								<tr>
+									<th>10</th><td>Tiofene</td> <td>31.63</td>
+								</tr>								
+							</tbody>
+					  </table>
+					</div>
+				</div>
+			</div>
+			<script>end_of_page('<%= session.getAttribute("username") %>');</script>
+		</div>
+	</body>
+</html>
