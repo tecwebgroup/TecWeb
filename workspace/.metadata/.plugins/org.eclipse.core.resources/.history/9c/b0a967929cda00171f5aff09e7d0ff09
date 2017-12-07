@@ -1,0 +1,10 @@
+function login(str1, str2) {
+	name = '<%= session.getAttribute("username") %>';
+	if(name.toString()!="null") {
+		if(str1!=null)
+			document.write(str1);
+	}else{
+		if(str2!=null)
+			document.write(str2);
+	}
+}

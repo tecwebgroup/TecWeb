@@ -1,0 +1,6 @@
+function select_bar() {
+	if(isLogged()){
+		document.write("<label class='radio-inline'><input type='radio' name='optradio'>Località preferite</label>");
+		document.write("<label class='radio-inline'><input type='radio' name='optradio'>Ricerca globale</label>");
+	}
+}

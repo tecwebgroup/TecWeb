@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+   "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+   "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<package name="default" extends="struts-default">
+		<interceptors>
+			<interceptor name="loginInterceptor" class="tecweb.controller.LoginInterceptor"/>
+			<interceptor-stack name="loginStack">
+				<interceptor-ref name="loginInterceptor"/>
+				<interceptor-ref name="defaultStack"/>
+			</interceptor-stack>
+		</interceptors>
+	  
+	  	<!-- login action -->
+	    <action name="login" class="tecweb.LoginAction" method="login">
+	         <result name="success">homeAction</result>
+	         <result name="login">index.jsp</result>
+	    </action>
+	    
+	    <!-- home link action -->
+	    <action name="homeAction" class="tecweb.LoginAction" method="home">
+	    	<interceptor-ref name="loginStack"/>
+	    	<result name="login">home.jsp</result>
+	    	<result name="success">index.jsp</result>
+	    </action>
+	    
+	    <!-- logout action -->
+	    <action name="logOut" class="tecweb.LoginAction">
+	   		<result>home.jsp</result>
+	    </action>
+	</package>
+</struts>

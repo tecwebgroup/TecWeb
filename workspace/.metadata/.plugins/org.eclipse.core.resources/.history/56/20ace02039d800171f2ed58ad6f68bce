@@ -1,0 +1,14 @@
+package controller;
+
+import com.opensymphony.xwork2.*;
+import entities.*;
+import model.*;
+
+public class AccountController extends ActionSupport{
+
+	@Override
+	public String execute() throws Exception {
+		return SUCCESS; 
+	}
+	
+}
